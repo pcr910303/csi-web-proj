@@ -1,0 +1,18 @@
+{
+    "name": "csi-web-proj",
+    "description": "",
+    "main": "app/index.js",
+    "scripts": {},
+    "author": "Sungbin Jo",
+    "dependencies": {
+        "bcryptjs": "latest",
+        "koa": "latest",
+        "koa-router": "latest",
+        "koa-session": "latest",
+        "passport-local": "latest",
+        "koa-passport": "latest",
+        "dotenv": "latest",
+        "mongodb": "latest",
+        "koa-body": "latest"
+    }
+}
