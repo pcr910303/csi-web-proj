@@ -6,13 +6,13 @@
     "author": "Sungbin Jo",
     "dependencies": {
         "bcryptjs": "latest",
+        "dotenv": "latest",
         "koa": "latest",
+        "koa-body": "latest",
+        "koa-passport": "latest",
         "koa-router": "latest",
         "koa-session": "latest",
-        "passport-local": "latest",
-        "koa-passport": "latest",
-        "dotenv": "latest",
         "mongodb": "latest",
-        "koa-body": "latest"
+        "passport-local": "latest"
     }
 }

@@ -4,7 +4,7 @@ const Koa = require("koa");
 const endpoint = require("./endpoint");
 
 const app = new Koa();
-const PORT = 3000;
+const PORT = 8002;
 
 app.use(endpoint.routes()).use(endpoint.allowedMethods());
 
