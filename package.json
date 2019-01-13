@@ -13,6 +13,7 @@
         "koa-router": "latest",
         "koa-session": "latest",
         "mongodb": "latest",
-        "passport-local": "latest"
+        "passport-local": "latest",
+        "pino": "latest"
     }
 }

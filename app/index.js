@@ -1,6 +1,7 @@
 require("dotenv").config();
 const Koa = require("koa");
 
+const logger = require("./logger.js");
 const endpoint = require("./endpoint");
 
 const app = new Koa();
