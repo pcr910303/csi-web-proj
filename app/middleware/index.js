@@ -13,6 +13,7 @@ module.exports = {
         ctx.state.db = ctx.state.client.db("csi-web-db");
         ctx.state.collection = {};
         ctx.state.collection.users = ctx.state.db.collection("users");
+        ctx.state.collection.times = ctx.state.db.collection("times");
         await next();
     }
 };
