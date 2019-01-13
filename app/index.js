@@ -1,5 +1,6 @@
 require("dotenv").config();
 const Koa = require("koa");
+const session = require("koa-session");
 
 const logger = require("./logger.js");
 const endpoint = require("./endpoint");
@@ -7,7 +8,7 @@ const endpoint = require("./endpoint");
 const app = new Koa();
 const PORT = 8002;
 
-app.use(endpoint.routes()).use(endpoint.allowedMethods());
+app.keys = ["key"];
 
 app.use(async (ctx, next) => {
     ctx.state.logger = logger;
@@ -15,6 +16,9 @@ app.use(async (ctx, next) => {
     await next();
     logger.info(ctx.body);
 });
+app.use(session(app));
+app.use(endpoint.routes());
+app.use(endpoint.allowedMethods());
 
 app.on("error", (err, ctx) => {
     logger.error(err);
