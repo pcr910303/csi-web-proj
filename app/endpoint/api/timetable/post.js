@@ -32,7 +32,7 @@ module.exports = async (ctx, next) => {
         { times: { $in: ctx.request.body.times } },
         {
             $push: {
-                students: ctx.state.user._id
+                students: ctx.state.user.code
             }
         }
     );
