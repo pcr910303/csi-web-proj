@@ -25,6 +25,8 @@ app.on("error", (err, ctx) => {
     logger.info(ctx);
 });
 
-const server = app.listen(PORT, () => logger.info(`Server listening on port ${PORT}`));
+const server = app.listen(PORT, () =>
+    logger.info(`Server listening on port ${PORT}`)
+);
 
 module.exports = server;
