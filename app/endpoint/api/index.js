@@ -1,8 +1,10 @@
 const Router = require("koa-router");
-const api = new Router();
+const api = Router();
 
-const timetable = require("./timetable.js");
+const timetable = require("./timetable");
+const users = require("./users");
 
-api.get("/timetable", timetable.get).post("/timetable", timetable.post);
+api.use("/timetable", timetable.routes());
+api.use("/users", users.routes());
 
 module.exports = api;

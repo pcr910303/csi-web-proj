@@ -1,5 +1,5 @@
 const Router = require("koa-router");
-const auth = new Router();
+const auth = Router();
 
 auth.post("/login", require("./login.js"));
 auth.post("/signup", require("./signup.js"));
