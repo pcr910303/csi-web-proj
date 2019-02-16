@@ -20,5 +20,5 @@ module.exports = async (ctx, next) => {
     ctx.body.data = {};
     ctx.body.data.email = user.email;
     ctx.body.data.code = user.code;
-    ctx.body.data.time = user.time;
+    ctx.body.data.times = user.times;
 };

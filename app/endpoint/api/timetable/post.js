@@ -1,5 +1,5 @@
 module.exports = async (ctx, next) => {
-    // if the times are not array...
+    // if the data is not array...
     if (!Array.isArray(ctx.request.body.times)) {
         // throw error
         ctx.body.status = false;
@@ -21,17 +21,17 @@ module.exports = async (ctx, next) => {
     await ctx.state.collection.users.findOneAndUpdate(
         { email: ctx.state.user.email },
         {
-            $set: {
-                time: ctx.request.body.times
+            $addToSet: {
+                times: { $each: ctx.request.body.times }
             }
         }
     );
 
-    // add to time
+    // add to times
     await ctx.state.collection.times.updateMany(
-        { times: { $in: ctx.request.body.times } },
+        { name: { $in: ctx.request.body.times } },
         {
-            $push: {
+            $addToSet: {
                 students: ctx.state.user.code
             }
         }

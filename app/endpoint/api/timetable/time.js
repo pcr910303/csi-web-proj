@@ -1,6 +1,6 @@
 module.exports = async (ctx, next) => {
     const time = await ctx.state.collection.times.findOne({
-        times: Number(ctx.params.time)
+        id: Number(ctx.params.time)
     });
 
     ctx.state.logger.debug(time.students);

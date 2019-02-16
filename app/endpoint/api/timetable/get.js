@@ -10,8 +10,7 @@ module.exports = async (ctx, next) => {
 
     // do not search db, we already pulled user data with passportjs
     ctx.state.logger.debug(ctx.state.user);
-    ctx.state.logger.debug(ctx.state.user.time);
 
     ctx.body.status = "success";
-    ctx.body.data = ctx.state.user.time;
+    ctx.body.data = ctx.state.user.times ? ctx.state.user.times : [];
 };

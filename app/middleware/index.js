@@ -8,18 +8,28 @@ let client = null;
     client = await MongoClient.connect(url, { useNewUrlParser: true });
     logger.info("Database connection established");
     const times = client.db("csi-web-db").collection("times");
-    new Array(100).fill().map((currentValue, index) => {
+    [
+        "수학 1",
+        "수학 2",
+        "수학 3",
+        "확률과 통계",
+        "물리 1",
+        "물리 2",
+        "물리 3",
+        "물리 4",
+        "고급 물리 1",
+        "고급 물리 2"
+    ].map((currentValue, index) => {
         times.findOneAndUpdate(
-            { times: index },
+            { id: index },
             {
                 $setOnInsert: {
-                    times: index
+                    name: currentValue
                 }
             },
             { upsert: true }
         );
     });
-    logger.info("Database collection times initalized");
 })();
 
 module.exports = {
