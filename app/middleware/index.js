@@ -1,7 +1,7 @@
 const logger = require("../logger.js");
 const { MongoClient } = require("mongodb");
-const url = `mongodb+srv://${process.env.PEBBLE_DB_USER}:${
-    process.env.PEBBLE_DB_PW
+const url = `mongodb+srv://${process.env.DB_USER}:${
+    process.env.DB_PW
 }@csi-web-db-nvdgx.mongodb.net/test?retryWrites=true`;
 let client = null;
 (async () => {
