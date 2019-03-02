@@ -39,6 +39,7 @@ module.exports = {
         ctx.state.collection = {};
         ctx.state.collection.users = ctx.state.db.collection("users");
         ctx.state.collection.times = ctx.state.db.collection("times");
+        ctx.state.collection.board = ctx.state.db.collection("board");
         await next();
     }
 };

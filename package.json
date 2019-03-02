@@ -3,17 +3,17 @@
     "description": "",
     "main": "app/index.js",
     "scripts": {},
-    "author": "Sungbin Jo",
     "dependencies": {
         "bcryptjs": "latest",
         "dotenv": "latest",
         "koa": "latest",
         "koa-body": "latest",
         "koa-passport": "latest",
-        "koa-router": "latest",
+        "koa-router": "^7.4.0",
         "koa-session": "latest",
         "mongodb": "latest",
         "passport-local": "latest",
+        "path-to-regexp": "^3.0.0",
         "pino": "latest"
     }
 }
