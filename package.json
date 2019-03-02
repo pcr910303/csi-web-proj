@@ -15,8 +15,9 @@
         "material-ui-next-pickers": "0.0.19",
         "mongodb": "latest",
         "passport-local": "latest",
+        "path-to-regexp": "latest",
         "pino": "latest",
-        "react": "^16.8.2",
-        "react-dom": "^16.8.2"
+        "react": "latest",
+        "react-dom": "latest"
     }
 }
