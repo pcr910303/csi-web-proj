@@ -24,7 +24,7 @@ $ echo "DB_PW=[Your DB password]" >> .env
 Now start the NodeJS process:
 
 ``` shell
-$ node app/index.js
+$ nodemon --watch app app/index.js
 ```
 
 The NodeJS serves the endpoints at [localhost:8002](http://localhost:8002).
