@@ -11,7 +11,14 @@
         "@babel/preset-react": "latest"
     },
     "dependencies": {
-        "react": "latest",
-        "react-dom": "latest"
+        "@date-io/date-fns": "^1.1.0",
+        "@material-ui/core": "^3.9.2",
+        "@material-ui/icons": "^3.0.2",
+        "date-fns": "^2.0.0-alpha.27",
+        "material-ui-pickers": "^2.2.1",
+        "prop-types": "^15.7.2",
+        "react": "^16.8.3",
+        "react-dom": "^16.8.3",
+        "react-router-dom": "^4.3.1"
     }
 }

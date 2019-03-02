@@ -5,6 +5,7 @@
     "scripts": {},
     "author": "Sungbin Jo",
     "dependencies": {
+        "@material-ui/core": "^3.9.2",
         "bcryptjs": "latest",
         "dotenv": "latest",
         "koa": "latest",
@@ -12,8 +13,11 @@
         "koa-passport": "latest",
         "koa-router": "latest",
         "koa-session": "latest",
+        "material-ui-next-pickers": "0.0.19",
         "mongodb": "latest",
         "passport-local": "latest",
-        "pino": "latest"
+        "pino": "latest",
+        "react": "^16.8.2",
+        "react-dom": "^16.8.2"
     }
 }
