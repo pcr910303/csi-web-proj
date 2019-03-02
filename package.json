@@ -3,7 +3,6 @@
     "description": "",
     "main": "app/index.js",
     "scripts": {},
-    "author": "Sungbin Jo",
     "dependencies": {
         "@material-ui/core": "^3.9.2",
         "bcryptjs": "latest",
