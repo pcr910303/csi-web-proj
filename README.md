@@ -1,21 +1,22 @@
 # CSI Web Project(a.k.a Jirung World)
+
 ## Setup
 
 Clone this repo:
 
-``` shell
+```shell
 $ git clone 'https://github.com/SSHS-CSI/csi-web-proj.git'
 ```
 
-Install all dependencies: 
+Install all dependencies:
 
-``` shell
+```shell
 $ npm i
 ```
 
 Put your mongodb credentials in the `.env` file:
 
-``` shell
+```shell
 $ touch .env
 $ echo "DB_USER=[Your DB user name]" >> .env
 $ echo "DB_PW=[Your DB password]" >> .env
@@ -23,7 +24,7 @@ $ echo "DB_PW=[Your DB password]" >> .env
 
 Now start the NodeJS process:
 
-``` shell
+```shell
 $ nodemon --watch app app/index.js
 ```
 
@@ -31,7 +32,7 @@ The NodeJS serves the endpoints at [localhost:8002](http://localhost:8002).
 [NGINX](http://nginx.org) serves the static files and proxies request to the nodejs process.
 An example configuration file for it is shown below.
 
-``` nginx
+```nginx
 
 worker_processes  1;
 
@@ -60,13 +61,13 @@ http {
         charset utf-8;
 
         root [Direcrtory of the view file]/dist;
-        
+
         location /endpoint {
             proxy_redirect off;
             proxy_http_version 1.1;
             proxy_pass http://csi-api;
-            proxy_set_header Host $host; 
-            proxy_set_header X-Real-IP $remote_addr; 
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
     }
@@ -78,7 +79,7 @@ http {
 
 Compile all of the static files:
 
-``` shell
+```shell
 $ cd app/view
 $ npm i
 $ # If you didn't install parcel yet
@@ -91,7 +92,7 @@ $ parcel watch index.html
 
 Turn on NGINX:
 
-``` shell
+```shell
 $ nginx
 ```
 
