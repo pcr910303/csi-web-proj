@@ -32,6 +32,12 @@ const styles = theme => ({
   avatar: {
     margin: theme.spacing.unit,
   },
+  inputid: {
+    marginTop: '4%',
+  },
+  inputpw: {
+    marginTop: '4%',
+  },
   checkbox: {
     marginTop: theme.spacing.unit * 2,
     width: '100%',
@@ -45,12 +51,10 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: theme.spacing.unit * 2.5,
   },
   signupbutton: {
     marginLeft: theme.spacing.unit * 3,
-  },
-  forgotPassword: {
-    marginTop: theme.spacing.unit * 3,
   },
 });
 
@@ -60,6 +64,16 @@ function SignIn(props) {
   const ForgotPasswordLink = props => <Link to="/forgotpassword/" {...props} />
 
   const [isRememberChecked, setIsRememberChecked] = useState(false);
+  const [enteredId, setEnteredId] = useState("");
+  const [enteredPW, setEnteredPW] = useState("");
+
+  function submit() {
+    fetch("http://localhost:8080/auth/login", {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ "email": enteredId, "password": enteredPW }),
+    }).then(res => res.json()).then(console.log).catch(console.log)
+  }
 
   return (
     <div>
@@ -72,20 +86,31 @@ function SignIn(props) {
           <Typography variant="h5">
             Sign In
           </Typography>
-          <FormControl required fullWidth margin="none">
-            <InputLabel>ID</InputLabel>
-            <Input autoFocus={false} />
+          <FormControl fullWidth className={classes.inputid}>
+            <Input
+              required
+              placeholder="ID"
+              autoFocus={true}
+              onChange={e => { setEnteredId(e.target.value) }}
+            />
           </FormControl>
-          <FormControl required fullWidth>
-            <InputLabel>Password</InputLabel>
-            <Input />
+          <FormControl fullWidth className={classes.inputpw}>
+            <Input
+              required
+              placeholder="Password"
+              onChange={e => { setEnteredPW(e.target.value) }}
+            />
           </FormControl>
           <FormControlLabel
-            control={<Checkbox onChange={e => setIsRememberChecked(e.target.checked)} />}
+            control={<Checkbox onChange={e => { setIsRememberChecked(e.target.checked)} } />}
             label="Remember me"
             className={classes.checkbox}
           />
-          <Button variant="contained" color="primary" className={classes.button}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={submit}
+            className={classes.button}>
             Login
           </Button>
         </Paper>
@@ -93,12 +118,19 @@ function SignIn(props) {
           <Typography>
             If you don't have account yet?
           </Typography>
-          <Button component={SignUpLink} variant="contained" color="primary" className={classes.signupbutton}>
+          <Button
+            component={SignUpLink}
+            variant="contained"
+            color="primary"
+            className={classes.signupbutton}
+          >
             Sign Up
           </Button>
         </div>
         <div className={classes.extraContentsAlign}>
-          <Typography component={ForgotPasswordLink} className={classes.forgotPassword}>
+          <Typography
+            component={ForgotPasswordLink}
+          >
             Forgot Password?
           </Typography>
         </div>

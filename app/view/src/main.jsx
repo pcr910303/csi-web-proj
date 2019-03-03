@@ -28,18 +28,13 @@ const styles = theme => ({
   title: {
     flexGrow: 1,
   },
-  icons: {
-    marginRight: '-1%',
+  settingicons: {
+    marginRight: -10,
   },
-  settings: {
-    marginRight: '30%',
-  }
+  accounticons: {
+    marginRight: -20,
+  },
 });
-
-fetch("/auth/login", {
-    method: 'POST',
-    body: JSON.stringify({ email: "luvtoyou@icloud.com", password: "luvtoyou" }),
-}).then(res => res.json()).then(console.log).catch(console.log)
 
 function Main(props) {
   const { classes } = props;
@@ -68,10 +63,14 @@ function Main(props) {
             Jirung World
           </Typography>
           {isLoggedIn ?
-            <IconButton color="inherit" className={classes.icons}>
-              <Settings className={classes.settings} />
-              <AccountCircle />
-            </IconButton>
+            <div>
+              <IconButton color="inherit" className={classes.settingicons}>
+                <Settings className={classes.settings} />
+              </IconButton>
+              <IconButton color="inherit" className={classes.accounticons}>
+                <AccountCircle />
+              </IconButton>
+            </div>
             : <Button component={SignInLink} color="inherit">Sign In</Button> }
         </Toolbar>
       </AppBar>

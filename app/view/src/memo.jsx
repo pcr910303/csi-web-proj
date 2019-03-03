@@ -20,8 +20,12 @@ import FormControl from '@material-ui/core/FormControl';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 const styles = theme => ({
-  dialog: {
+  dateselectroot: {
 
+  },
+  dateselectlabel: {
+    marginLeft: -15,
+    textTransform: 'capitalize',
   },
   card: {
     paddingLeft: '6%',
@@ -30,28 +34,16 @@ const styles = theme => ({
   select: {
     label: "기한 설정설정",
   },
-  switch: {
-
-  },
-  collapse: {
-
-  },
-  datepicker: {
-  },
-  input: {
-  },
   exitbutton: {
     display: 'flex',
     justifyContent: 'flex-end'
   },
-  privacyboundselect: {
-  }
 });
 
 function Memo(props) {
   const { classes } = props;
 
-  const [open, setOpen] = useState(true);
+  const [isMemoOpened, setIsMemoOpened] = useState(false);
   const [isDateUsed, setIsDateUsed] = useState(false);
   const [written, setWritten] = useState("");
   const [privacyBound, setPrivacyBound] = useState("private");
@@ -62,20 +54,16 @@ function Memo(props) {
   const [selectedDate, setSelectedDate] = useState(defaultDate);
 
   function handleOpen() {
-    setOpen(true);
+    setIsMemoOpened(true);
   }
 
   function handleClose() {
-    setOpen(false);
+    setIsMemoOpened(false);
   }
 
   const handleSelectedDate = date => (
     setSelectedDate(date)
   );
-
-  function submit() {
-
-  }
 
   return (
     <div>
@@ -83,8 +71,7 @@ function Memo(props) {
       <Dialog
         disableBackdropClick
         disableEscapeKeyDown
-        open={open}
-        className={classes.dialog}
+        open={isMemoOpened}
       >
         <DialogTitle>메모 추가</DialogTitle>
         <DialogContent>
@@ -94,9 +81,12 @@ function Memo(props) {
                           checked={isDateUsed}
                           onChange={e => { setIsDateUsed(e.target.checked); }}
                           className={classes.switch}/>}
-              label="기한 설정"
+              label="asss"
               labelPlacement="start"
-              className={classes.select}
+              classes={{
+                root: classes.dateselectroot,
+                label: classes.dateselectlabel,
+              }}
             />
             <Collapse in={isDateUsed} timeout="auto" className={classes.collapse}>
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -120,7 +110,7 @@ function Memo(props) {
               multiline={true}
               fullWidth
               onChange={e => { setWritten(e.target.value); }}
-              className={classes.input}
+              classes={classes.input}
             />
             <FormControlLabel
               control={<Select
@@ -134,7 +124,7 @@ function Memo(props) {
             />
             <div className={classes.exitbutton}>
               <Button color="primary" onClick={handleClose}>Cancel</Button>
-              <Button color="primary" onClick={submit}>Ok</Button>
+              <Button color="primary">Ok</Button>
             </div>
           </Card>
         </DialogContent>
