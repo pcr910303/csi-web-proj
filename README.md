@@ -60,9 +60,9 @@ http {
 
         charset utf-8;
 
-        root [Direcrtory of the view file]/dist;
+        root [Directory of repo]/app/view/dist;
 
-        location /endpoint {
+        location ~ ^/(api|auth) {
             proxy_redirect off;
             proxy_http_version 1.1;
             proxy_pass http://csi-api;
