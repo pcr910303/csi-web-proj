@@ -28,8 +28,7 @@ Now start the NodeJS process:
 $ nodemon --watch app app/index.js
 ```
 
-The NodeJS serves the endpoints at [localhost:8002](http://localhost:8002).
-[NGINX](http://nginx.org) serves the static files and proxies request to the nodejs process.
+If a PORT environment variable is not set, NodeJS serves the endpoints at [localhost:8000](http://localhost:8000). [NGINX](http://nginx.org) serves the static files and proxies request to the nodejs process.
 An example configuration file for it is shown below.
 
 ```nginx
@@ -51,7 +50,7 @@ http {
     #gzip  on;
 
     upstream csi-api {
-        server localhost:8002;
+        server localhost:[PORT number(if no env vars, 8000)];
     }
 
     server {

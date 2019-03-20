@@ -12,7 +12,7 @@ const logger = require("./logger.js");
 const endpoint = require("./endpoint");
 
 const app = new Koa();
-const PORT = 8002;
+const PORT = process.env.PORT || 8000;
 
 app.keys = ["key"];
 
