@@ -4,16 +4,16 @@
     "main": "app/index.js",
     "scripts": {},
     "dependencies": {
-        "bcryptjs": "latest",
-        "dotenv": "latest",
-        "koa": "latest",
-        "koa-body": "latest",
-        "koa-passport": "latest",
-        "koa-router": "latest",
-        "koa-session": "latest",
-        "mongodb": "latest",
-        "passport-local": "latest",
-        "path-to-regexp": "latest",
-        "pino": "latest"
+        "bcryptjs": "^2.4.3",
+        "dotenv": "^7.0.0",
+        "koa": "^2.7.0",
+        "koa-body": "^4.1.0",
+        "koa-passport": "^4.1.1",
+        "koa-router": "^7.4.0",
+        "koa-session": "^5.10.1",
+        "mongodb": "^3.1.13",
+        "passport-local": "^1.0.0",
+        "path-to-regexp": "^3.0.0",
+        "pino": "^5.11.1"
     }
 }
