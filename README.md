@@ -97,3 +97,11 @@ $ nginx
 ```
 
 Now, the site will be served at [localhost:8080](http://localhost:8080).
+
+Quick check:
+
+``` shell
+$ curl localhost:8080/auth/login \
+    --data '{"email":"luvtoyou@icloud.com","password":"luvtoyou"}' \
+    --header 'Content-Type: application/json'
+```
