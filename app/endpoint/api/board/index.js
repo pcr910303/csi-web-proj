@@ -1,3 +1,4 @@
 const Router = require("koa-router");
 
-module.exports = Router().post("/write", require("./write.js"));
+module.exports = Router()
+    .post("/write/:lecture", require("./write.js"))
