@@ -2,7 +2,10 @@
     "name": "csi-web-proj",
     "description": "",
     "main": "app/index.js",
-    "scripts": {},
+    "scripts": {
+        "parcel:watch": "parcel watch app/view/index.html -d app/view/dist",
+        "parcel:build": "parcel build app/view/index.html -d app/view/dist --experimental-scope-hoisting",
+    },
     "dependencies": {
         "bcryptjs": "^2.4.3",
         "dotenv": "^7.0.0",
