@@ -1,5 +1,5 @@
 module.exports = async (ctx, next) => {
-    if (
+    if(
         !ctx.request.body.author ||
         !ctx.request.body.date ||
         !ctx.request.body.title ||
@@ -7,8 +7,8 @@ module.exports = async (ctx, next) => {
         (ctx.request.body.comments === undefined ||
             ctx.request.body.comments.length == 0) ||
         (!ctx.request.body.deadline.isvalid ||
-            (ctx.request.body.deadline.isvalid === true &&
-                !ctx.request.body.deadline.date))
+            ctx.request.body.deadline.isvalid === true &&
+                !ctx.request.body.deadline.date)
     ) {
         ctx.body.status = false;
         ctx.body.error = "form-malformed";

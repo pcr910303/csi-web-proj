@@ -20,15 +20,13 @@ let client = null;
         "고급 물리 1",
         "고급 물리 2"
     ].map((currentValue, index) => {
-        times.findOneAndUpdate(
-            { id: index },
+        times.findOneAndUpdate({ id: index },
             {
                 $setOnInsert: {
                     name: currentValue
                 }
             },
-            { upsert: true }
-        );
+            { upsert: true });
     });
 })();
 

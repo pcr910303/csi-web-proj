@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 
 dotenv.config({
-    path: path.join(__dirname, "../.env")
+    path: path.resolve("../.env")
 });
 
 const Koa = require("koa");
@@ -31,8 +31,6 @@ app.on("error", (err, ctx) => {
     logger.info(ctx);
 });
 
-const server = app.listen(PORT, () =>
-    logger.info(`Server listening on port ${PORT}`)
-);
+const server = app.listen(PORT, () => logger.info(`Server listening on port ${PORT}`));
 
 module.exports = server;

@@ -7,7 +7,7 @@ module.exports = async (ctx, next) => {
     ctx.state.logger.debug(user);
 
     // if user with specified code does not exist...
-    if (!user) {
+    if(!user) {
         // throw error
         ctx.body.status = false;
         // no such code

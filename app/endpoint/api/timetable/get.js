@@ -1,6 +1,6 @@
 module.exports = async (ctx, next) => {
     // if user does not exist...
-    if (!ctx.state.user) {
+    if(!ctx.state.user) {
         // throw error
         ctx.body.status = false;
         // we should have thrown unauthorized before...
