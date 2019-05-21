@@ -11,7 +11,7 @@ $ git clone 'https://github.com/SSHS-CSI/csi-web-proj.git'
 Install all dependencies:
 
 ```shell
-$ npm i
+$ yarn install
 ```
 
 Put your mongodb credentials in the `.env` file:
@@ -25,7 +25,12 @@ $ echo "DB_PW=[Your DB password]" >> .env
 Now start the NodeJS process:
 
 ```shell
+$ # plain node
+$ node app/index.js
+$ # with nodemon
 $ nodemon --watch app app/index.js
+$ # with pm2
+$ pm2 start app/index.js --watch
 ```
 
 If a PORT environment variable is not set, NodeJS serves the endpoints at [localhost:8000](http://localhost:8000). [NGINX](http://nginx.org) serves the static files and proxies request to the nodejs process.
@@ -80,13 +85,13 @@ Compile all of the static files:
 
 ```shell
 $ cd app/view
-$ npm i
+$ yarn add
 $ # If you didn't install parcel yet
-$ npm i parcel -g
-$ For production builds
-$ parcel build index.html
+$ yarn global add parcel-bundler
+$ # For production builds
+$ yarn run parcel:build
 $ # Or, if you want development builds with watching
-$ parcel watch index.html
+$ yarn run parcel:watch
 ```
 
 Turn on NGINX:
