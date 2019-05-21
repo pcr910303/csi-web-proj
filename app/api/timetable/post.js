@@ -16,22 +16,10 @@ module.exports = async (ctx, next) => {
         ctx.throw(500, JSON.stringify(ctx.body));
     }
 
-    /* addding to db
-       add to user */
-    await ctx.state.collection.users.findOneAndUpdate({ email: ctx.state.user.email },
-        {
-            $addToSet: {
-                times: { $each: ctx.request.body.times }
-            }
-        });
-
-    // add to times
-    await ctx.state.collection.times.updateMany({ name: { $in: ctx.request.body.times } },
-        {
-            $addToSet: {
-                students: ctx.state.user.code
-            }
-        });
+    // add to db
+    await ctx.state.collection.users.findOneAndUpdate({ email: ctx.state.user.email }, {
+        $addToSet: { times: { $each: ctx.request.body.times } }
+    });
 
     ctx.body.status = "success";
 };

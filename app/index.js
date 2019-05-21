@@ -1,15 +1,13 @@
 const dotenv = require("dotenv");
 const path = require("path");
 
-dotenv.config({
-    path: path.resolve("../.env")
-});
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 const Koa = require("koa");
 const session = require("koa-session");
 
 const logger = require("./logger.js");
-const endpoint = require("./endpoint");
+const api = require("./api");
 
 const app = new Koa();
 const PORT = process.env.PORT || 8000;
@@ -22,9 +20,10 @@ app.use(async (ctx, next) => {
     await next();
     logger.info(ctx.body);
 });
+
 app.use(session(app));
-app.use(endpoint.routes());
-app.use(endpoint.allowedMethods());
+app.use(api.routes());
+app.use(api.allowedMethods());
 
 app.on("error", (err, ctx) => {
     logger.error(err);
