@@ -1,23 +1,27 @@
 {
     "name": "csi-web-proj",
     "description": "",
-    "main": "app/index.js",
+    "main": "src/index.js",
     "scripts": {
-        "parcel:watch": "parcel watch app/view/index.html -d app/view/dist",
-        "parcel:build": "parcel build app/view/index.html -d app/view/dist --experimental-scope-hoisting",
-        "eslint:check": "eslint \"**/*.js\" \"**/*.jsx\"",
-        "eslint:fix": "eslint \"**/*.js\" \"**/*.jsx\" --fix"
+        "eslint:check": "eslint \"**/*.js\"",
+        "eslint:fix": "eslint \"**/*.js\" --fix"
     },
     "dependencies": {
-        "bcryptjs": "^2.4.3",
+        "@types/express": "^4.16.1",
         "dotenv": "^7.0.0",
+        "express": "^4.17.1",
+        "json-api": "^3.0.0-rc.6.0.1",
         "koa": "^2.7.0",
-        "koa-body": "^4.1.0",
-        "koa-passport": "^4.1.1",
+        "koa-convert": "^1.2.0",
         "koa-router": "^7.4.0",
-        "koa-session": "^5.10.1",
-        "mongodb": "^3.1.13",
-        "passport-local": "^1.0.0",
-        "pino": "^5.11.1"
+        "mongoose": "^5.5.11",
+        "mongoose-type-email": "^1.0.11"
+    },
+    "devDependencies": {
+        "@types/dotenv": "^6.1.1",
+        "@types/koa": "^2.0.48",
+        "@types/koa-convert": "^1.2.2",
+        "@types/koa-router": "^7.0.40",
+        "@types/mongoose": "^5.5.3"
     }
 }
